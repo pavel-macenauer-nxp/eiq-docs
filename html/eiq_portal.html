@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eIQ Portal &mdash; eIQ&amp;reg; SDE  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Embedded Jupyter Notebook" href="notebooks/hello_world.html" />
+    <link rel="prev" title="Workflows" href="workflows.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> eIQ&reg; SDE
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflows.html">Workflows</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">eIQ Portal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#home">Home</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#projects">Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plugins">Plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-new-converter-plugin">Adding a new converter plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-set-curator">Data Set Curator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dataset-import">Dataset import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#train-test-split">Train-test split</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dataset-annotation">Dataset annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#augmentation-tool">Augmentation tool</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#random-blur">Random Blur</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/hello_world.html">Embedded Jupyter Notebook</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">eIQ&reg; SDE</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>eIQ Portal</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/eiq_portal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="eiq-portal">
+<h1>eIQ Portal<a class="headerlink" href="#eiq-portal" title="Permalink to this heading"></a></h1>
+<p>The eIQ Portal is a GUI that allows the user to leverage the eIQ Toolkit capabilities in a practical and intuitive manner. With little or no knowledge of machine learning, the eIQ Portal enables the user to build models for image classification and object-detection problems.
+In the eIQ Portal title bar (see Figure 2), you can find several buttons in the home screen and in the opened project screen, respectively:</p>
+<ul class="simple">
+<li><p>REMOTE DEVICES - opens a modal window where you can set remote devices to validate and profile your model.</p></li>
+<li><p>MARKETPLACE - provides information on additional services and solutions that are available from NXP and eco-system partners.</p></li>
+<li><p>HELP - provides the eIQ Toolkit documentation.</p></li>
+<li><p>WORKSPACES - (appears after opening a project) - this drop-down menu enables you to switch between the eIQ Portal sections of an opened project.</p></li>
+<li><p>PLUG-INS - provides information about all available converter plugins. You can check if the relevant plugin is ready and where it is located.</p></li>
+</ul>
+<section id="home">
+<h2>Home<a class="headerlink" href="#home" title="Permalink to this heading"></a></h2>
+<p>In the eIQ Portal home screen, you can create a new project, open an existing one, launch the eIQ Model Tool, and open a command-line window by clicking on CREATE PROJECT, OPEN PROJECT, MODEL TOOL, and COMMAND LINE buttons, respectively.</p>
+<a class="reference internal image-reference" href="_images/home.png"><img alt="eIQ Portal: home" class="align-center" src="_images/home.png" style="width: 400px;" /></a>
+</section>
+<section id="projects">
+<h2>Projects<a class="headerlink" href="#projects" title="Permalink to this heading"></a></h2>
+<p>A project is a database that stores the data that you work with and the related information. When you import images, add labels, or generally modify the data, these changes are automatically stored in the project. All the images that you work with are stored in the project as well, so when working with a large dataset, the file size is not small.</p>
+<p>Use the Importer command-line tool for importing bigger datasets into a project.</p>
+<p>There are a few things to note for more advanced users:</p>
+<ul class="simple">
+<li><p>There are two file extensions accepted - .eiqp and .deepview. There is no difference between the two.</p></li>
+<li><p>Internally, a project is organized in an SQLite database.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While it is possible to edit files manually, it is not recommended.</p>
+</div>
+</section>
+<section id="plugins">
+<h2>Plugins<a class="headerlink" href="#plugins" title="Permalink to this heading"></a></h2>
+<p>Plugins are an extension to the Converter tool. The currently installed plugins allow for conversion between TF Lite, RTM, and ONNX formats, but a custom conversion can be implemented to extend the current functionality. Conversions are not only format-to-format conversions. Input and output formats can actually be the same and the plugin may do just about anything to the machine learning model internally, for example, a graph transformation or an optimization (such as quantization).</p>
+<section id="adding-a-new-converter-plugin">
+<h3>Adding a new converter plugin<a class="headerlink" href="#adding-a-new-converter-plugin" title="Permalink to this heading"></a></h3>
+<p>Plugins are implemented as Python modules installed in the eIQ Toolkit’s Python environment. To implement them, use the following folder structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">project_directory</span><span class="o">&gt;</span>
+    <span class="n">setup</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">converter_plugin</span>
+        <span class="n">assets</span>
+            <span class="n">image</span><span class="o">.</span><span class="n">svg</span> <span class="ow">or</span> <span class="n">image</span><span class="o">.</span><span class="n">png</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">html</span>
+        <span class="n">__main__</span><span class="o">.</span><span class="n">py</span>
+        <span class="n">Other</span> <span class="n">files</span> <span class="ow">or</span> <span class="n">folders</span>
+</pre></div>
+</div>
+<p>The image.svg or image.png files should have resolution of 128x128 and they show up in the eIQ Portal plugins screen. The info.html file describes the plugin details, parameters, and others. The main plugin source code file (converter_plugin.__main__.py) should implement the following functions:</p>
+<ul class="simple">
+<li><p>query_convert(src_type, dst_type) -&gt; dict()</p></li>
+<li><p>convert(src_file, dst_file, params) -&gt; dict()</p></li>
+</ul>
+<p>On top of that, a standard setup.py file should also be implemented to build the wheel package. A sample setup.py script may look as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span><span class="n">find_packages</span>
+<span class="n">Package_name</span><span class="o">=</span><span class="s1">&#39;&lt;plugin_name&gt;&#39;</span>
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&lt;plugin_name&gt;&#39;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;&lt;version&gt;&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&lt;description&gt;&#39;</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="s1">&#39;&lt;website&gt;&#39;</span><span class="p">,</span>
+    <span class="n">author</span><span class="o">=</span><span class="s1">&#39;&lt;author&gt;&#39;</span><span class="p">,</span>
+    <span class="n">author_email</span><span class="o">=</span><span class="s1">&#39;&lt;author_email&gt;&#39;</span><span class="p">,</span>
+    <span class="n">license</span><span class="o">=</span><span class="s1">&#39;&lt;license&gt;&#39;</span><span class="p">,</span>
+    <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;deepview_converter&#39;</span><span class="p">:</span>
+        <span class="p">[</span><span class="s1">&#39;converter = &lt;package_name&gt;.__main__&#39;</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="o">&lt;</span><span class="n">package_name</span><span class="o">&gt;</span><span class="p">],</span>
+    <span class="n">package_data</span><span class="o">=</span><span class="p">{</span><span class="n">package</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;assets</span><span class="se">\\</span><span class="s1">*&#39;</span><span class="p">]},</span>
+    <span class="n">install_requires</span><span class="o">=</span>
+        <span class="p">[</span><span class="s1">&#39;&lt;required_module&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;another_required_module&gt;&#39;</span><span class="p">,],</span>
+    <span class="n">classifiers</span><span class="o">=</span><span class="p">[],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>When the files and folders are created and all the required code is implemented, the plugin can be compiled within the eIQ Toolkit command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">bdist_wheel</span> <span class="o">--</span><span class="n">universal</span>
+</pre></div>
+</div>
+<p>This creates a *.whl file that can be installed using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deepview</span><span class="o">-</span><span class="n">converter</span> <span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">path_to_whl_file</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>When the plugin is installed, it should be automatically discovered. To check that the plugin was installed successfully, run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deepview</span><span class="o">-</span><span class="n">converter</span> <span class="o">-</span><span class="n">l</span>
+</pre></div>
+</div>
+<p>A plugin can also be uninstalled if needed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deepview</span><span class="o">-</span><span class="n">converter</span> <span class="o">-</span><span class="n">u</span> <span class="o">&lt;</span><span class="n">plugin_name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="data-set-curator">
+<h2>Data Set Curator<a class="headerlink" href="#data-set-curator" title="Permalink to this heading"></a></h2>
+<p>Data curation is the organization and integration of data collected from various sources. To open the “Data Set Curator” window, click the CREATE PROJECT or OPEN PROJECT buttons in the main menu (see Figure 2). Depending on the images that you have currently imported, the dataset curator window can look as follows:</p>
+<a class="reference internal image-reference" href="_images/curator.png"><img alt="eIQ Portal: dataset" class="align-center" src="_images/curator.png" style="width: 400px;" /></a>
+<p>The “Data Set Curator” workspace allows you to preview the images imported so far. This workspace uses a lazy loading strategy to show the images, so scroll down to see the rest.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If there are no images in the current project, the “Data Set Curator” window shows the “No images found” message on the screen.</p>
+</div>
+<section id="dataset-import">
+<h3>Dataset import<a class="headerlink" href="#dataset-import" title="Permalink to this heading"></a></h3>
+<p>To import data into the project, the interface provides three different options that differ according to the source where the data is captured:</p>
+<ul class="simple">
+<li><p>IMPORT: You can browse your local machine to select multiple sample images and upload them at once.</p></li>
+<li><p>CAPTURE: This option utilizes a connected camera to take instantaneous images.</p></li>
+<li><p>REMOTE: This option allows you to capture images from a remote device.</p></li>
+</ul>
+</section>
+<section id="train-test-split">
+<h3>Train-test split<a class="headerlink" href="#train-test-split" title="Permalink to this heading"></a></h3>
+<p>The “Dataset Test Holdout” box in the “Data Set Curator” panel allows you to define what percentage of the collection of data in the imported data set is used for testing vs training. The selection is random and the data in the “test” set are not used in the training step. The input value corresponds to the size of the test data set. The default value is 20 %:</p>
+<a class="reference internal image-reference" href="_images/dataset_test.png"><img alt="eIQ Portal: &quot;Dataset Test Holdout&quot; box" class="align-center" src="_images/dataset_test.png" style="width: 400px;" /></a>
+</section>
+<section id="dataset-annotation">
+<h3>Dataset annotation<a class="headerlink" href="#dataset-annotation" title="Permalink to this heading"></a></h3>
+<p>To enable dataset annotation, click the image that you want to annotate. A good recommendation is to select the “Unlabeled Images” option in the left panel (see Figure 3) to avoid confusion between the labeled and unlabeled images. By selecting this option, you only see the images that remain unlabeled.
+There are two different ways to annotate the data:</p>
+<ul class="simple">
+<li><p>Bounding box: labels a specific region within the image.</p></li>
+<li><p>Full image: assigns a label to the whole image (see Figure 5).</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/dataset_annotation.png"><img alt="eIQ Portal: dataset annotation" class="align-center" src="_images/dataset_annotation.png" style="width: 400px;" /></a>
+<p>Now that you have selected a specific image, you can perform the annotations. By default, the “Bounding Box” selector is enabled so you can draw rectangles over the images to enclose the desired regions and label them.</p>
+<p>The “Box” drawer also enables an input field that helps you to introduce the annotation inline. Notice that the labels are created once and they can be reutilized later. Also, you can check the annotations by moving the mouse over the label in the right panel. See how the bounding box is enclosed in a yellow rectangle. When you place the mouse over each annotation in the right panel, you can also delete that label.</p>
+<p>During the annotation process for every image, add a new label for the entire image or select an existing one. Notice that the labels in the project are shared for both annotations (“Region-Specific Labels” and “Full Image Labels”). In this way, you can reutilize all the labels as well. To add a full image label, click the plus icon in the right panel (“Full Image Labels”) and add a new label or select an existing one.</p>
+<p>The “Train” and “Test” buttons in right panel assign the image to the training and testing datasets, respectively.</p>
+</section>
+<section id="augmentation-tool">
+<h3>Augmentation tool<a class="headerlink" href="#augmentation-tool" title="Permalink to this heading"></a></h3>
+<p>The data augmentation workspace allows you to quickly adjust the image parameters to improve model training by reducing over-fitting and increasing the robustness for dynamic real-world environments. It is widely used in machine learning to diversify the training dataset (without adding more data) by transforming a percentage of existing data into a variation, as supported by the augmentation pipeline. Using these techniques, you can generate new training samples and apply simple transformations to the original data. To apply the data augmentation, click the “AUGMENTATION TOOL” button in the “Data Set Curator” menu (see Figure 3). The following screen shows the “Augmentation Pipeline” workspace with an explanation of augmentation controls:</p>
+<a class="reference internal image-reference" href="_images/augmentation.png"><img alt="eIQ Portal: &quot;Augmentation Pipeline&quot; workspace" class="align-center" src="_images/augmentation.png" style="width: 400px;" /></a>
+<p>The “Augmentation Pipeline” allows the user to combine one or more augmentation processors into a group. The default pipelines are already preset with the preset augmentations. Add a new pipeline by clicking the new button in the top left corner of the screen. Once added, you can change the name to the desired name. You can add one or more augmentations to a custom pipeline (the default pipelines cannot be edited). To do that, click the “ADD” button next the “Augmentations” area. A list with available augmentation is displayed. Click the desired augmentation to add it. The “Probability” value on each augmentation defines the percentage of images added to the training dataset with this augmentation effect. If the probability is 0.2 and if there are 100 images in the data set, then 20 images receive this augmentation in the training process per batch.</p>
+<p>Augmentation pipelines are only executed during training. They are not used as a part of testing or validation. On top of that, for each image, for each epoch and for each step, an augmentation is generated dynamically, which means that at every epoch, the training set of images is different.</p>
+<p>The “GENERATE NEW RANDOM AUGMENTATION” button allows you to generate a preview of how the augmented data might look like in the right-hand part of the screen.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If an augmentation parameter has lower and upper limits, then the parameter has a random value between these limits.</p>
+</div>
+<p>The following operators are supported by the augmentation tool:</p>
+<section id="random-blur">
+<h4>Random Blur<a class="headerlink" href="#random-blur" title="Permalink to this heading"></a></h4>
+<p>Image blurring is achieved by convolving the image with a low-pass filter kernel.</p>
+<p>It is useful to simulate an out-of-focus camera or images with low resolution.</p>
+<p>It is useful for removing noise. It removes high-frequency content (noise, edges) from the image, which results in blurred edges when this filter is applied.</p>
+<p>The probability slider adjusts the percentage of images that undergo this augmentation in each iteration.</p>
+<p>The blur limit controls the kernel size in pixels.</p>
+<a class="reference internal image-reference" href="_images/random_blur.png"><img alt="eIQ Portal: Random Blur settings" class="align-center" src="_images/random_blur.png" style="width: 400px;" /></a>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="workflows.html" class="btn btn-neutral float-left" title="Workflows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="notebooks/hello_world.html" class="btn btn-neutral float-right" title="Embedded Jupyter Notebook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, NXP.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
